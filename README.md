@@ -4,9 +4,9 @@
 Debian Image Builder for the Raspberry Pi 
 
 The boards that are currently supported are;
-* RPi4B
-* RPi3B/+
-* and RPi0/W/1/+
+* Raspberry Pi 4B (bcm2711)
+* Raspberry Pi 3B/3B+ (bcm2709, bcm2837, bcm2837b0)
+* Raspberry Pi 0/0W/1/+ (bcm2708, bcm2835)
 
 ### Downloadable Image
 
@@ -75,21 +75,21 @@ make purge
 
 ## Command list (current)
 
-* Raspberry Pi 4B (default)
+### Raspberry Pi 4B (default)
 
 ```sh
-AARCH64
+# AARCH64
 make kernel
 make image
 make all
 
-ARMv7l
+# ARMv7l
 make kernelv7
 make imagev7
 make allv7
 ```
 
-* Raspberry Pi 3B/+
+### Raspberry Pi 3B/+
 
 ```sh
 # AARCH64
@@ -103,7 +103,7 @@ make rpi3-imagev7
 make rpi3-allv7
 ```
 
-* Raspberry Pi 0W
+### Raspberry Pi 0W
 
 ```sh
 # ARMv6l
@@ -112,7 +112,7 @@ make rpi0-image
 make rpi0-all
 ```
 
-* Root Filesystems
+### Root Filesystems
 
 ```sh
 make rootfs   # (arm64)
@@ -128,18 +128,18 @@ make purge
 make commands
 ```
 
-## Howto
+## Usage
 
-### Kernel
+### Building the kernel
 
-#### Kernel branch:
+#### Modifying the selected kernel branch
 
 ```sh
 kernel="linux-rpi" # See: https://github.com/raspberrypi/linux
 version="5.4.y"    # default
 ```
 
-#### Switches:
+#### Flicking the switches
 
 ```sh
 # 1 = active
@@ -158,8 +158,8 @@ MYCONFIG="nameofyour_defconfig"
 ```
 ### Support
 
-Create an issue or join our channel on Freenode; [`#debianarm-port`](irc://irc.freenode.net/#debianarm-port)
+Should you come across any issues, feel free to either open an issue on GitHub or talk with us directly by joining our channel on Freenode; [`#debianarm-port`](irc://irc.freenode.net/#debianarm-port)
 
 ### Funding
 
-Please [donate](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=VG8GP2SY4CEEW&item_name=For+new+single+board+computers+and+accessories) if you'd like to support development.
+Please consider [donating](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=VG8GP2SY4CEEW&item_name=For+new+single+board+computers+and+accessories) if you'd like to support development.
