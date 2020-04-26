@@ -27,7 +27,7 @@ export ARCH=arm64
 ### Packaging patches
 echo
 echo Applying packaging patch.
-patch -p1 < ../${pat}/rpi3b-packaging.patch &> /dev/null
+patch -p1 < ../${pat}/rpi3b-packaging.patch
 cp -f ../${pat}/headers-byteshift.patch headers-byteshift.patch
 echo Done.
 echo
