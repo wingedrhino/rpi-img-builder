@@ -25,11 +25,12 @@ KERNEL=kernel
 #make clean
 #make mrproper
 
-### Packaging patch
+### Packaging patches
 echo
 echo Applying packaging patch.
 sleep 1s
-patch -p1 < ../${pat}/rpi0w-packaging.patch &> /dev/null
+patch -p1 < ../${pat}/rpi-packaging.patch &> /dev/null
+cp -f ../${pat}/headers-byteshift.patch headers-byteshift.patch
 echo Done.
 echo
 
