@@ -25,10 +25,11 @@ KERNEL=kernel7l
 #make clean
 #make mrproper
 
-### Packaging patch
+### Packaging patches
 echo
 echo Applying packaging patch.
 patch -p1 < ../${pat}/rpi4b-v7-packaging.patch &> /dev/null
+cp -f ../${pat}/headers-byteshift.patch headers-byteshift.patch
 echo Done.
 echo
 
