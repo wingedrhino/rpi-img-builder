@@ -1,6 +1,6 @@
 diff -Naur a/scripts/package/builddeb b/scripts/package/builddeb
 --- a/scripts/package/builddeb	2020-04-24 10:17:06.000000000 -0400
-+++ b/scripts/package/builddeb	2020-04-26 12:33:02.262133549 -0400
++++ b/scripts/package/builddeb	2020-04-26 12:28:00.182646087 -0400
 @@ -47,12 +47,13 @@
  }
  
@@ -21,24 +21,26 @@ diff -Naur a/scripts/package/builddeb b/scripts/package/builddeb
  else
  	cp System.map "$tmpdir/boot/System.map-$version"
  	cp $KCONFIG_CONFIG "$tmpdir/boot/config-$version"
-+	cp arch/arm/boot/zImage "$tmpdir/boot/kernel7.img"
++	cp arch/arm/boot/zImage "$tmpdir/boot/kernel.img"
  fi
  cp "$($MAKE -s -f $srctree/Makefile image_name)" "$tmpdir/$installed_image_path"
  
-@@ -139,6 +141,12 @@
+@@ -139,6 +141,14 @@
  	mv $libc_headers_dir/usr/include/asm $libc_headers_dir/usr/include/$host_arch/
  fi
  
 +# Install dtb and overlays
 +mkdir -p "$tmpdir/boot/overlays"
-+cp -r "$tmpdir/usr/lib/linux-image-$version/bcm2710-rpi-3-b-plus.dtb" "$tmpdir/boot/bcm2710-rpi-3-b-plus.dtb"
-+cp -r "$tmpdir/usr/lib/linux-image-$version/bcm2710-rpi-3-b.dtb" "$tmpdir/boot/bcm2710-rpi-3-b.dtb"
++cp -r "$tmpdir/usr/lib/linux-image-$version/bcm2708-rpi-zero-w.dtb" "$tmpdir/boot/bcm2708-rpi-zero-w.dtb"
++cp -r "$tmpdir/usr/lib/linux-image-$version/bcm2708-rpi-zero.dtb" "$tmpdir/boot/bcm2708-rpi-zero.dtb"
++cp -r "$tmpdir/usr/lib/linux-image-$version/bcm2708-rpi-b.dtb" "$tmpdir/boot/bcm2708-rpi-b.dtb"
++cp -r "$tmpdir/usr/lib/linux-image-$version/bcm2708-rpi-b-plus.dtb" "$tmpdir/boot/bcm2708-rpi-b-plus.dtb"
 +cp -r "$tmpdir/usr/lib/linux-image-$version/overlays/" "$tmpdir/boot/"
 +
  # Install the maintainer scripts
  # Note: hook scripts under /etc/kernel are also executed by official Debian
  # kernel packages, as well as kernel packages built using make-kpkg.
-@@ -164,6 +172,40 @@
+@@ -164,6 +174,40 @@
  	chmod 755 "$tmpdir/DEBIAN/$script"
  done
  
@@ -79,7 +81,7 @@ diff -Naur a/scripts/package/builddeb b/scripts/package/builddeb
  # Build kernel header package
  (cd $srctree; find . -name Makefile\* -o -name Kconfig\* -o -name \*.pl) > "$objtree/debian/hdrsrcfiles"
  (cd $srctree; find arch/*/include include scripts -type f -o -type l) >> "$objtree/debian/hdrsrcfiles"
-@@ -183,6 +225,26 @@
+@@ -183,6 +227,26 @@
  (cd $objtree; cp $KCONFIG_CONFIG $destdir/.config) # copy .config manually to be where it's expected to be
  ln -sf "/usr/src/linux-headers-$version" "$kernel_headers_dir/lib/modules/$version/build"
  rm -f "$objtree/debian/hdrsrcfiles" "$objtree/debian/hdrobjfiles"
