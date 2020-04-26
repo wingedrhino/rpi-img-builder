@@ -31,11 +31,11 @@ diff -Naur a/scripts/package/builddeb b/scripts/package/builddeb
  
 +# Install dtb and overlays
 +mkdir -p "$tmpdir/boot/overlays"
-+cp -r "$tmpdir/usr/lib/linux-image-$version/bcm2708-rpi-zero-w.dtb" "$tmpdir/boot/bcm2708-rpi-zero-w.dtb"
-+cp -r "$tmpdir/usr/lib/linux-image-$version/bcm2708-rpi-zero.dtb" "$tmpdir/boot/bcm2708-rpi-zero.dtb"
-+cp -r "$tmpdir/usr/lib/linux-image-$version/bcm2708-rpi-b.dtb" "$tmpdir/boot/bcm2708-rpi-b.dtb"
-+cp -r "$tmpdir/usr/lib/linux-image-$version/bcm2708-rpi-b-plus.dtb" "$tmpdir/boot/bcm2708-rpi-b-plus.dtb"
-+cp -r "$tmpdir/usr/lib/linux-image-$version/overlays/" "$tmpdir/boot/"
++cp -r "$tmpdir/usr/lib/raspberrypi-linux-image/bcm2708-rpi-zero-w.dtb" "$tmpdir/boot/bcm2708-rpi-zero-w.dtb"
++cp -r "$tmpdir/usr/lib/raspberrypi-linux-image/bcm2708-rpi-zero.dtb" "$tmpdir/boot/bcm2708-rpi-zero.dtb"
++cp -r "$tmpdir/usr/lib/raspberrypi-linux-image/bcm2708-rpi-b.dtb" "$tmpdir/boot/bcm2708-rpi-b.dtb"
++cp -r "$tmpdir/usr/lib/raspberrypi-linux-image/bcm2708-rpi-b-plus.dtb" "$tmpdir/boot/bcm2708-rpi-b-plus.dtb"
++cp -r "$tmpdir/usr/lib/raspberrypi-linux-image/overlays/" "$tmpdir/boot/"
 +
  # Install the maintainer scripts
  # Note: hook scripts under /etc/kernel are also executed by official Debian
