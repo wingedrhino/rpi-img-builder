@@ -31,8 +31,8 @@ diff -Naur a/scripts/package/builddeb b/scripts/package/builddeb
  
 +# Install dtb and overlays
 +mkdir -p "$tmpdir/boot/broadcom/overlays"
-+cp -r "$tmpdir/usr/lib/linux-image-$version/bcm2711-rpi-4-b.dtb" "$tmpdir/boot/broadcom/bcm2711-rpi-4-b.dtb"
-+cp -r "$tmpdir/usr/lib/linux-image-$version/overlays/" "$tmpdir/boot/broadcom/"
++cp -r "$tmpdir/usr/lib/raspberrypi-linux-image/bcm2711-rpi-4-b.dtb" "$tmpdir/boot/broadcom/bcm2711-rpi-4-b.dtb"
++cp -r "$tmpdir/usr/lib/raspberrypi-linux-image/overlays/" "$tmpdir/boot/broadcom/"
 +
  # Install the maintainer scripts
  # Note: hook scripts under /etc/kernel are also executed by official Debian
