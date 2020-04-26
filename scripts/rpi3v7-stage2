@@ -57,9 +57,6 @@ mv -f set-governor /usr/local/bin/
 mv -f sysinfo /usr/local/bin/
 mv -f temp-monitor /usr/local/bin/tmon
 mv -f wifiscan /usr/local/bin/
-# Kernel headers
-mv -f make-scripts /usr/local/bin/
-mv -f headers-byteshift.patch /usr/local/src/
 # Service
 mv -f firstboot /usr/local/sbin/
 mv -f pwrledoff /usr/local/sbin/
