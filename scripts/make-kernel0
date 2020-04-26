@@ -29,7 +29,7 @@ KERNEL=kernel
 echo
 echo Applying packaging patch.
 sleep 1s
-patch -p1 < ../${pat}/rpi-packaging.patch &> /dev/null
+patch -p1 < ../${pat}/rpi-packaging.patch
 cp -f ../${pat}/headers-byteshift.patch headers-byteshift.patch
 echo Done.
 echo
