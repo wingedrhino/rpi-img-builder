@@ -28,7 +28,7 @@ KERNEL=kernel7l
 ### Packaging patches
 echo
 echo Applying packaging patch.
-patch -p1 < ../${pat}/rpi4b-v7-packaging.patch &> /dev/null
+patch -p1 < ../${pat}/rpi4b-v7-packaging.patch
 cp -f ../${pat}/headers-byteshift.patch headers-byteshift.patch
 echo Done.
 echo
