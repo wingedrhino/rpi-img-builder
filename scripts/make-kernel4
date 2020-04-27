@@ -24,13 +24,33 @@ export ARCH=arm64
 #make clean
 #make mrproper
 
-### Packaging patches
-echo
-echo Applying packaging patch.
-patch -p1 < ../${pat}/rpi4b-packaging.patch
-cp -f ../${pat}/headers-byteshift.patch headers-byteshift.patch
-echo Done.
-echo
+### Patching
+case `grep -Fx "native=1" "../../kernel.txt" >/dev/null; echo $?` in
+  0)
+    echo
+    echo Applying nc packaging patch.
+    patch -p1 < ../${pat}/nobyteshift/rpi4b-packaging.patch
+    echo Done.
+    echo
+    ;;
+  *)
+    #echo
+    ;;
+esac
+
+case `grep -Fx "crosscompile=1" "../../kernel.txt" >/dev/null; echo $?` in
+  0)
+    echo
+    echo Applying cc packaging patch.
+    patch -p1 < ../${pat}/rpi4b-packaging.patch
+    cp -f ../${pat}/headers-byteshift.patch headers-byteshift.patch
+    echo Done.
+    echo
+    ;;
+  *)
+    #echo
+    ;;
+esac
 
 ### Foundation defconfig
 case `grep -Fx "foundation_defconfig=1" "../../kernel.txt" >/dev/null; echo $?` in
@@ -39,11 +59,8 @@ case `grep -Fx "foundation_defconfig=1" "../../kernel.txt" >/dev/null; echo $?` 
     make ARCH=arm64 bcm2711_defconfig &> /dev/null
     echo Done.
     ;;
-  1)
-    #echo
-    ;;
   *)
-    echo no config found!
+    #echo
     ;;
 esac
 
@@ -55,11 +72,8 @@ case `grep -Fx "lessfoundation_defconfig=1" "../../kernel.txt" >/dev/null; echo 
     make ARCH=arm64 rpi4-noinitrd_defconfig &> /dev/null
     echo Done.
     ;;
-  1)
-    #echo
-    ;;
   *)
-    echo no config found!
+    #echo
     ;;
 esac
 
@@ -71,11 +85,8 @@ case `grep -Fx "custom_defconfig=1" "../../kernel.txt" >/dev/null; echo $?` in
     make ARCH=arm64 ${MYCONFIG} &> /dev/null
     echo Done.
     ;;
-  1)
-    #echo
-    ;;
   *)
-    echo no config found!
+    #echo
     ;;
 esac
 
@@ -87,11 +98,8 @@ case `grep -Fx "menuconfig=1" "../../kernel.txt" >/dev/null; echo $?` in
     sleep 1s
     make menuconfig &> /dev/null
     ;;
-  1)
-    #echo
-    ;;
   *)
-    echo grumble! grumble!
+    #echo
     ;;
 esac
 
@@ -102,12 +110,8 @@ case `grep -Fx "native=1" "../../kernel.txt" >/dev/null; echo $?` in
     echo --- Building deb packages.
     make -j${cores} ARCH=arm64 bindeb-pkg
     ;;
-  1)
-    echo
-    echo you are cross compiling
-    ;;
   *)
-    echo grumble! grumble!
+    #echo
     ;;
 esac
 
@@ -117,12 +121,8 @@ case `grep -Fx "crosscompile=1" "../../kernel.txt" >/dev/null; echo $?` in
     echo --- Building deb packages.
     make -j${cores} ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- bindeb-pkg
     ;;
-  1)
-    echo 
-    echo you are not cross compiling
-    ;;
   *)
-    echo grumble! grumble!
+    #echo
     ;;
 esac
 echo Done.
