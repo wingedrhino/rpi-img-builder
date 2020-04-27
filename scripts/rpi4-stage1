@@ -10,8 +10,8 @@ DEVICE_SOC="bcm2711-rpi-4-b"
 
 set -eux -o pipefail
 IMAGE_LINUX_LOADADDR="0x1080000"
-IMAGE_FILE_SUFFIX="$(date +%F)"
-IMAGE_FILE_NAME="${DEVICE_SOC}-debian-${DEBIAN_VERSION}-v8.img"
+IMAGE_DATE="$(date +%F)"
+IMAGE_FILE_NAME="${DEVICE_SOC}-debian-${DEBIAN_VERSION}-${IMAGE_DATE}-v8.img"
 if [ $RAM -ne 0 ]; then
 	IMAGE_FOLDER="ram/"
 fi
@@ -211,7 +211,7 @@ fi
 # Setup stage2
 cp scripts/rpi4-stage2 p2/root
 cp config.txt p2/root
-cp ${tmp4}/*.deb p2/root
+cp ${TMP4}/*.deb p2/root
 cp files/misc/* p2/root
 cp files/patches/* p2/root
 cp files/rules/* p2/root

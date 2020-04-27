@@ -51,7 +51,7 @@ help:
 	@echo "  make image             Make bootable Debian image"
 	@echo "  make cleanup           Clean up image errors"
 	@echo "  make purge             Remove tmp directory"
-	@echo "  make commands          Build RPi3B / RPi0W images"
+	@echo "  make commands          Build RPi3B / RPi images"
 	@echo
 	@echo "  make all               Feeling lucky?"
 	@echo
@@ -68,7 +68,7 @@ commands:
 	@echo
 	@echo "  rpi4 (default)           Raspberry Pi 4B"
 	@echo "  rpi3                     Raspberry Pi 3B/+"
-	@echo "  rpi0                     Raspberry Pi 0w"
+	@echo "  rpi                      Raspberry Pi 0/0W/B/+"
 	@echo
 	@echo "RPi3B/+:"
 	@echo " aacrh64"
@@ -81,11 +81,11 @@ commands:
 	@echo "  make rpi3-imagev7        Make bootable Debian image"
 	@echo "  make rpi3-allv7          Kernel > rootfs > image"
 	@echo
-	@echo "RPi0W:"
+	@echo "RPi:"
 	@echo " armv6l"	
-	@echo "  make rpi0-kernel         Builds linux kernel"
-	@echo "  make rpi0-image          Make bootable Debian image"
-	@echo "  make rpi0-all            Kernel > rootfs > image"
+	@echo "  make rpi-kernel         Builds linux kernel"
+	@echo "  make rpi-image          Make bootable Debian image"
+	@echo "  make rpi-all            Kernel > rootfs > image"
 	@echo
 	@echo "Root filesystem:"
 	@echo
@@ -216,20 +216,20 @@ rpi3-allv7:
 	@chmod +x ${STG32V7}
 	@${IMAGE3V7}
 
-# Raspberry Pi 0w | armv6l
-rpi0-kernel:
+# Raspberry Pi | armv6l
+rpi-kernel:
 	# Linux | armv6l
 	@chmod +x ${KERNEL0}
 	@${KERNEL0}
 
-rpi0-image:
+rpi-image:
 	# Make bootable Debian image
 	@chmod +x ${IMG0}
 	@chmod +x ${STG02}
 	@${IMAGE0}
 
-rpi0-all:
-	# RPi0W | ARMV6L
+rpi-all:
+	# RPi | ARMV6L
 	# - - - - - - - -
 	#
 	# Building linux

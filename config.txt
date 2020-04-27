@@ -1,9 +1,9 @@
 # config.txt
-tmp4="rpi4"
-tmp4v7="rpi4v7"
-tmp3="rpi3"
-tmp3v7="rpi3v7"
-tmp0="rpi0"
+TMP4="rpi4"
+TMP4v7="rpi4v7"
+TMP3="rpi3"
+TMP3v7="rpi3v7"
+TMP0="rpi0"
 # do not edit above this line
 
 # stage1
