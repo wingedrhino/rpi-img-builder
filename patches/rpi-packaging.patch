@@ -29,7 +29,7 @@ diff -Naur a/scripts/package/builddeb b/scripts/package/builddeb
  	mv $libc_headers_dir/usr/include/asm $libc_headers_dir/usr/include/$host_arch/
  fi
  
-+# Install dtb and overlays
++# install dtb and overlays
 +mkdir -p "$tmpdir/boot/overlays"
 +cp -r "$tmpdir/usr/lib/raspberrypi-linux-image/bcm2708-rpi-zero-w.dtb" "$tmpdir/boot/bcm2708-rpi-zero-w.dtb"
 +cp -r "$tmpdir/usr/lib/raspberrypi-linux-image/bcm2708-rpi-zero.dtb" "$tmpdir/boot/bcm2708-rpi-zero.dtb"
@@ -44,7 +44,7 @@ diff -Naur a/scripts/package/builddeb b/scripts/package/builddeb
  	chmod 755 "$tmpdir/DEBIAN/$script"
  done
  
-+       # Remove kernel script
++       # remove kernel
 +        cat > $tmpdir/DEBIAN/preinst <<EOT
 +#!/bin/sh
 +# purge kernel script
@@ -89,11 +89,11 @@ diff -Naur a/scripts/package/builddeb b/scripts/package/builddeb
 +(cd $destdir; patch -p1 < headers-byteshift.patch)
 +rm -f $destdir/headers-byteshift.patch
 +
-+	# Make scripts - Thanx Armbian
++	# make scripts - thanx armbian
 +	mkdir -p $kernel_headers_dir/DEBIAN
 +	cat > $kernel_headers_dir/DEBIAN/postinst <<EOT
 +#!/bin/sh
-+# run make scripts
++# compile headers
 +
 +set -e
 +cd /usr/src/linux-headers-$version
