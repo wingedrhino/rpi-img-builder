@@ -1,6 +1,6 @@
 diff -Naur a/scripts/package/builddeb b/scripts/package/builddeb
 --- a/scripts/package/builddeb	2020-04-24 10:17:06.000000000 -0400
-+++ b/scripts/package/builddeb	2020-04-26 12:12:41.173256772 -0400
++++ b/scripts/package/builddeb	2020-04-27 03:00:19.534087415 -0400
 @@ -47,12 +47,13 @@
  }
  
@@ -74,33 +74,6 @@ diff -Naur a/scripts/package/builddeb b/scripts/package/builddeb
  # Build kernel header package
  (cd $srctree; find . -name Makefile\* -o -name Kconfig\* -o -name \*.pl) > "$objtree/debian/hdrsrcfiles"
  (cd $srctree; find arch/*/include include scripts -type f -o -type l) >> "$objtree/debian/hdrsrcfiles"
-@@ -183,6 +220,26 @@
- (cd $objtree; cp $KCONFIG_CONFIG $destdir/.config) # copy .config manually to be where it's expected to be
- ln -sf "/usr/src/linux-headers-$version" "$kernel_headers_dir/lib/modules/$version/build"
- rm -f "$objtree/debian/hdrsrcfiles" "$objtree/debian/hdrobjfiles"
-#+cp headers-byteshift.patch $destdir/
-#+(cd $destdir; patch -p1 < headers-byteshift.patch)
-#+rm -f $destdir/headers-byteshift.patch
-#+
-#+	# Make scripts - Thanx Armbian
-#+	mkdir -p $kernel_headers_dir/DEBIAN
-#+	cat > $kernel_headers_dir/DEBIAN/postinst <<EOT
-#+#!/bin/sh
-#+# run make scripts
-#+
-#+set -e
-#+cd /usr/src/linux-headers-$version
-#+echo "Compiling headers"
-#+find -type f -exec touch {} +
-#+make -s scripts >/dev/null
-#+make -s M=scripts/mod/ >/dev/null
-#+exit 0
-#+EOT
-#+
-#+        chmod 755 $kernel_headers_dir/DEBIAN/postinst
- 
- if [ "$ARCH" != "um" ]; then
- 	create_package "$kernel_headers_packagename" "$kernel_headers_dir"
 diff -Naur a/scripts/package/mkdebian b/scripts/package/mkdebian
 --- a/scripts/package/mkdebian	2020-04-24 10:17:06.000000000 -0400
 +++ b/scripts/package/mkdebian	2020-04-26 09:49:39.000000000 -0400
