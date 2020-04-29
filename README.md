@@ -103,13 +103,13 @@ make rpi3-imagev7
 make rpi3-allv7
 ```
 
-### Raspberry Pi 0W
+### Raspberry Pi 0/0W/B/+
 
 ```sh
 # ARMv6l
-make rpi0-kernel
-make rpi0-image
-make rpi0-all
+make rpi-kernel
+make rpi-image
+make rpi-all
 ```
 
 ### Root Filesystems
