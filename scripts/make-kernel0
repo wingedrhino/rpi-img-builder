@@ -21,14 +21,6 @@ cd ${KERNEL}-${VERSION}
 export ARCH=arm
 KERNEL=kernel
 
-### Builddeb
-rm -f scripts/package/builddeb
-rm -f scripts/package/mkdebian
-cp ../${BD}/builddeb scripts/package/builddeb
-cp ../${BD}/mkdebian scripts/package/mkdebian
-chmod +x scripts/package/builddeb
-chmod +x scripts/package/mkdebian
-
 ### Clean kernel
 #make clean
 #make mrproper
