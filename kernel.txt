@@ -8,7 +8,6 @@ DEF="../defconfig"
 PAT="../patches"
 CC="../patches/cc"
 NC="../patches/nc"
-BD="../files/builddeb"
 # do not edit above this line
 
 # kernel
