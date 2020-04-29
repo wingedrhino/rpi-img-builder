@@ -1,4 +1,3 @@
-`feature branch`
 
 # rpi-img-builder
 
@@ -8,6 +7,16 @@ The boards that are currently supported are;
 * Raspberry Pi 4B (bcm2711)
 * Raspberry Pi 3B/3B+ (bcm2709, bcm2837, bcm2837b0)
 * Raspberry Pi 0/0W/1/+ (bcm2708, bcm2835)
+
+### Downloadable Image
+
+A bootable Debian image which has been compiled against Raspberry Pi's modified `Linux 5.4.32` (`aarch64 armv7l armv6l`) kernel can be found here;
+
+* [`rpi-4-b-debian-buster v8`](http://www.mediafire.com/file/ll98hfp3k84zvm7/rpi-4-b-debian-buster-v8.7z/file)
+* [`rpi-4-b-debian-buster v7`](http://www.mediafire.com/file/6jm4353zc1gvbqb/rpi-4-b-debian-buster-v7.7z/file)
+* [`rpi-3-b-plus-debian-buster v8`](http://www.mediafire.com/file/cul1ok8jgyk8j5x/rpi-3-b-plus-debian-buster-v8.7z/file)
+* [`rpi-3-b-plus-debian-buster v7`](http://www.mediafire.com/file/wa0wc7xn2u7eivt/rpi-3-b-plus-debian-buster-v7.7z/file)
+* [`rpi-zero-w-debian-buster`](http://www.mediafire.com/file/p27bp5irwwikxon/rpi-zero-w-debian-buster.7z/file)
 
 ## Dependencies
 
@@ -94,13 +103,13 @@ make rpi3-imagev7
 make rpi3-allv7
 ```
 
-### Raspberry Pi 0/0W/B/+
+### Raspberry Pi 0W
 
 ```sh
 # ARMv6l
-make rpi-kernel
-make rpi-image
-make rpi-all
+make rpi0-kernel
+make rpi0-image
+make rpi0-all
 ```
 
 ### Root Filesystems
