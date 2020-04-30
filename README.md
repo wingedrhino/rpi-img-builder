@@ -136,7 +136,7 @@ make commands
 
 ```sh
 kernel="linux-rpi" # See: https://github.com/raspberrypi/linux
-version="5.4.y"    # default
+version="5.4.y"    # Supported: 4.19.y | 5.4.y 
 ```
 
 #### Flicking the switches
