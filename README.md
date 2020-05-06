@@ -10,7 +10,7 @@ The boards that are currently supported are;
 
 ### Downloadable Image
 
-A bootable Debian image which has been compiled against Raspberry Pi's modified `Linux 5.4.32` (`aarch64 armv7l armv6l`) kernel can be found here;
+A bootable Debian image which has been compiled against Raspberry Pi's modified `Linux 5.4.32` (`aarch64 armv6l`) kernel can be found here;
 
 * [`rpi-4-b-debian-buster v8`](http://www.mediafire.com/file/ll98hfp3k84zvm7/rpi-4-b-debian-buster-v8.7z/file)
 * [`rpi-3-b-plus-debian-buster v8`](http://www.mediafire.com/file/cul1ok8jgyk8j5x/rpi-3-b-plus-debian-buster-v8.7z/file)
