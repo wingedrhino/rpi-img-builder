@@ -8,19 +8,18 @@ DEF="../defconfig"
 PAT="../patches"
 CC="../patches/cc"
 NC="../patches/nc"
+CORES=`nproc`
 # do not edit above this line
 
 # kernel
 KERNEL="linux-rpi"
 VERSION="5.4.y"
-CORES=`nproc`
 
 # 1 = active
 # 0 = inactive
 foundation_defconfig=1
 lessfoundation_defconfig=0
 menuconfig=0
-native=0
 crosscompile=1
 
 # user defconfig must be in defconfig directory
