@@ -79,7 +79,7 @@ diff -Naur a/scripts/package/builddeb b/scripts/package/builddeb
  ln -sf "/usr/src/linux-headers-$version" "$kernel_headers_dir/lib/modules/$version/build"
  rm -f "$objtree/debian/hdrsrcfiles" "$objtree/debian/hdrobjfiles"
 +cp headers-byteshift.patch $destdir/
-+(cd $destdir; patch -p1 < headers-byteshift.patch)
++(cd $destdir; make M=scripts clean) && (cd $destdir; patch -p1 < headers-byteshift.patch)
 +rm -f $destdir/headers-byteshift.patch
 +
 +	# make scripts - thanx armbian
