@@ -73,7 +73,7 @@ make purge
 
 ## Command list (current)
 
-### Raspberry Pi 4B (default)
+#### Raspberry Pi 4B (default)
 
 ```sh
 # AARCH64
@@ -87,7 +87,7 @@ make imagev7
 make allv7
 ```
 
-### Raspberry Pi 3B/+
+#### Raspberry Pi 3B/+
 
 ```sh
 # AARCH64
@@ -101,7 +101,7 @@ make rpi3-imagev7
 make rpi3-allv7
 ```
 
-### Raspberry Pi 0/0W/B/+
+#### Raspberry Pi 0/0W/B/+
 
 ```sh
 # ARMv6l
@@ -110,7 +110,7 @@ make rpi-image
 make rpi-all
 ```
 
-### Root Filesystems
+#### Root Filesystems
 
 ```sh
 make rootfs   # (arm64)
@@ -118,7 +118,7 @@ make rootfsv7 # (armhf)
 make rootfsv6 # (armel)
 ```
 
-* Miscellaneous
+#### Miscellaneous
 
 ```sh
 make cleanup
