@@ -90,7 +90,7 @@ diff -Naur a/scripts/package/builddeb b/scripts/package/builddeb
 +
 +set -e
 +cd /usr/src/linux-headers-$version
-+echo "Compiling headers"
++echo "Compiling headers ..."
 +find -type f -exec touch {} +
 +make -s scripts >/dev/null
 +make -s M=scripts/mod/ >/dev/null
