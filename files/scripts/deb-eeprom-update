@@ -3,7 +3,7 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 ### Change version number when needed
 ## https://archive.raspberrypi.org/debian/pool/main/r/rpi-eeprom/
-EEPROM_VERSION="5.8"
+EEPROM_VERSION="6.0"
 
 echo Checking for updates.
 sudo apt update
