@@ -144,14 +144,11 @@ version="5.4.y"    # Supported: 4.19.y | 5.4.y
 # 0 = inactive
 
 # --- default
-foundation_defconfig=1        # raspberry pi foundation
-lessfoundation_defconfig=0    # no initrd | less usb wireless support
-custom_defconfig=0            # your custom defconfig
-menuconfig=0                  # open menuconfig
-crosscompile=1                # cross compiling
+crosscompile=1                    # cross compiling
+menuconfig=0                      # open menuconfig
+custom_defconfig=0                # your custom defconfig
+MYCONFIG="nameofyour_defconfig"   # place in defconfig directory
 
-# user defconfig must be in defconfig directory
-MYCONFIG="nameofyour_defconfig"
 ```
 ### Support
 
