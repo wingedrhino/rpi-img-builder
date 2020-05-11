@@ -385,6 +385,14 @@ cd ..
 dpkg -i *.deb
 cd ..
 rm -fdr eeprom
+echo
+echo Adding user eeprom config.
+tee /home/${user}/.eeprom <<EOF
+# EEPROM CONFIG
+## https://archive.raspberrypi.org/debian/pool/main/r/rpi-eeprom/
+EEPROM_VERSION="${EEPROM_VERSION}"
+EOF
+chown ${user}:${user} /home/${user}/.eeprom
 echo Done.
 
 ### Building raspi-config
