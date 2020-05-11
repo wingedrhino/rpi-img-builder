@@ -32,6 +32,8 @@ case `grep -Fx "crosscompile=1" "../../kernel.txt" >/dev/null; echo $?` in
     echo Applying cc packaging patch.
     patch -p1 < ../${CC}/rpi-packaging.patch
     cp -f ../${PAT}/headers-byteshift.patch headers-byteshift.patch
+    sed -i 's/export INITRD=$want_initrd/export INITRD=No/g' scripts/package/builddeb
+    sed -i 's/export INITRD=$(if_enabled_echo CONFIG_BLK_DEV_INITRD Yes No)/export INITRD=No/g' scripts/package/builddeb
     echo Done.
     echo
     ;;
@@ -39,6 +41,8 @@ case `grep -Fx "crosscompile=1" "../../kernel.txt" >/dev/null; echo $?` in
     echo
     echo Applying nc packaging patch.
     patch -p1 < ../${NC}/rpi-packaging.patch
+    sed -i 's/export INITRD=$want_initrd/export INITRD=No/g' scripts/package/builddeb
+    sed -i 's/export INITRD=$(if_enabled_echo CONFIG_BLK_DEV_INITRD Yes No)/export INITRD=No/g' scripts/package/builddeb
     echo Done.
     echo
     ;;
@@ -47,37 +51,17 @@ case `grep -Fx "crosscompile=1" "../../kernel.txt" >/dev/null; echo $?` in
     ;;
 esac
 
-### Foundation defconfig
-case `grep -Fx "foundation_defconfig=1" "../../kernel.txt" >/dev/null; echo $?` in
-  0)
-    echo Making foundation defconfig.
-    make KBUILD_DEBARCH=armel ARCH=arm bcmrpi_defconfig &> /dev/null
-    echo Done.
-    ;;
-  *)
-    #
-    ;;
-esac
-
-### Builder defconfig
-case `grep -Fx "lessfoundation_defconfig=1" "../../kernel.txt" >/dev/null; echo $?` in
-  0)
-    echo Making builder defconfig.
-    cp -f ../${DEF}/rpi0-noinitrd_defconfig arch/arm/configs/
-    make KBUILD_DEBARCH=armel ARCH=arm rpi0-noinitrd_defconfig &> /dev/null
-    echo Done.
-    ;;
-  *)
-    #
-    ;;
-esac
-
-### Custom defconfig
+### Defconfig
 case `grep -Fx "custom_defconfig=1" "../../kernel.txt" >/dev/null; echo $?` in
   0)
     echo Making ${MYCONFIG}.
     cp -f ../${DEF}/${MYCONFIG} arch/arm/configs/
     make KBUILD_DEBARCH=armel ARCH=arm ${MYCONFIG}
+    echo Done.
+    ;;
+  1)
+    echo Making foundation defconfig.
+    make KBUILD_DEBARCH=armel ARCH=arm bcmrpi_defconfig &> /dev/null
     echo Done.
     ;;
   *)

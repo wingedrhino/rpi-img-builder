@@ -31,6 +31,8 @@ case `grep -Fx "crosscompile=1" "../../kernel.txt" >/dev/null; echo $?` in
     echo Applying cc packaging patch.
     patch -p1 < ../${CC}/rpi4b-packaging.patch
     cp -f ../${PAT}/headers-byteshift.patch headers-byteshift.patch
+    sed -i 's/export INITRD=$want_initrd/export INITRD=No/g' scripts/package/builddeb
+    sed -i 's/export INITRD=$(if_enabled_echo CONFIG_BLK_DEV_INITRD Yes No)/export INITRD=No/g' scripts/package/builddeb
     echo Done.
     echo
     ;;
@@ -38,6 +40,8 @@ case `grep -Fx "crosscompile=1" "../../kernel.txt" >/dev/null; echo $?` in
     echo
     echo Applying nc packaging patch.
     patch -p1 < ../${NC}/rpi4b-packaging.patch
+    sed -i 's/export INITRD=$want_initrd/export INITRD=No/g' scripts/package/builddeb
+    sed -i 's/export INITRD=$(if_enabled_echo CONFIG_BLK_DEV_INITRD Yes No)/export INITRD=No/g' scripts/package/builddeb
     echo Done.
     echo
     ;;
@@ -46,37 +50,17 @@ case `grep -Fx "crosscompile=1" "../../kernel.txt" >/dev/null; echo $?` in
     ;;
 esac
 
-### Foundation defconfig
-case `grep -Fx "foundation_defconfig=1" "../../kernel.txt" >/dev/null; echo $?` in
-  0)
-    echo Making foundation defconfig.
-    make ARCH=arm64 bcm2711_defconfig &> /dev/null
-    echo Done.
-    ;;
-  *)
-    #
-    ;;
-esac
-
-### Builder defconfig
-case `grep -Fx "lessfoundation_defconfig=1" "../../kernel.txt" >/dev/null; echo $?` in
-  0)
-    echo Making builder defconfig.
-    cp -f ../${DEF}/rpi4-noinitrd_defconfig arch/arm64/configs/
-    make ARCH=arm64 rpi4-noinitrd_defconfig &> /dev/null
-    echo Done.
-    ;;
-  *)
-    #
-    ;;
-esac
-
-### Custom defconfig
+### Defconfig
 case `grep -Fx "custom_defconfig=1" "../../kernel.txt" >/dev/null; echo $?` in
   0)
     echo Making ${MYCONFIG}.
     cp -f ../${DEF}/${MYCONFIG} arch/arm64/configs/
     make ARCH=arm64 ${MYCONFIG}
+    echo Done.
+    ;;
+  1)
+    echo Making foundation defconfig.
+    make ARCH=arm64 bcm2711_defconfig &> /dev/null
     echo Done.
     ;;
   *)
