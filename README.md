@@ -157,7 +157,7 @@ nano ~/.eeprom
 ## https://archive.raspberrypi.org/debian/pool/main/r/rpi-eeprom/
 EEPROM_VERSION="6.0" # change version number
 ```
-`Execute: deb-eeprom-update`
+Execute: `deb-eeprom-update`
 
 ---
 
