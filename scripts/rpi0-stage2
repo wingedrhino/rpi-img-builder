@@ -112,7 +112,7 @@ mkdir -p /lib/firmware
 mv -f firmware-nonfree-master/* /lib/firmware
 rm -fdR firmware-nonfree-master
 cd /lib/firmware/brcm
-wget -cq https://raw.githubusercontent.com/openwrt/cypress-nvram/master/brcmfmac43430-sdio.raspberrypi%2Cmodel-zero-w.txt
+wget -cq --show-progress https://raw.githubusercontent.com/openwrt/cypress-nvram/master/brcmfmac43430-sdio.raspberrypi%2Cmodel-zero-w.txt
 cd ~
 echo Done.
 
@@ -236,7 +236,7 @@ echo
 echo Building bluez firmware package.
 sleep 1s
 git clone https://github.com/RPi-Distro/bluez-firmware.git
-wget -cq http://deb.debian.org/debian/pool/non-free/b/bluez-firmware/bluez-firmware_1.2.orig.tar.gz
+wget -cq --show-progress http://deb.debian.org/debian/pool/non-free/b/bluez-firmware/bluez-firmware_1.2.orig.tar.gz
 cd bluez-firmware
 dpkg-buildpackage -us -uc
 cd ~
@@ -250,7 +250,7 @@ echo Adding brcm firmware from cypress.
 sleep 1s
 mkdir cypress
 cd cypress
-wget -cq https://community.cypress.com/servlet/JiveServlet/download/19000-1-51721/cypress-fmac-v4.14.77-2020_0115.zip
+wget -cq --show-progress https://community.cypress.com/servlet/JiveServlet/download/19000-1-51721/cypress-fmac-v4.14.77-2020_0115.zip
 unzip -qq cypress-fmac-v4.14.77-2020_0115.zip
 tar -xf cypress-firmware-v4.14.77-2020_0115.tar.gz
 rm -f firmware/*pcie*
@@ -277,7 +277,7 @@ echo Fixing ca certificates.
 sleep 1s
 mkdir -p certificates
 cd certificates
-wget -cq http://deb.debian.org/debian/pool/main/c/ca-certificates/ca-certificates_20190110.tar.xz
+wget -cq --show-progress http://deb.debian.org/debian/pool/main/c/ca-certificates/ca-certificates_20190110.tar.xz
 tar -xf ca-certificates_20190110.tar.xz
 cd ca-certificates-20190110
 dpkg-buildpackage -us -uc
