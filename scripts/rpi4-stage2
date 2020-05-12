@@ -118,7 +118,7 @@ mkdir -p /lib/firmware
 mv -f firmware-nonfree-master/* /lib/firmware
 rm -fdR firmware-nonfree-master
 cd /lib/firmware/brcm
-wget -cq https://raw.githubusercontent.com/openwrt/cypress-nvram/master/brcmfmac43455-sdio.raspberrypi%2C4-model-b.txt
+wget -cq --show-progress https://raw.githubusercontent.com/openwrt/cypress-nvram/master/brcmfmac43455-sdio.raspberrypi%2C4-model-b.txt
 cd ~
 echo Done.
 
@@ -242,7 +242,7 @@ echo
 echo Building bluez firmware package.
 sleep 1s
 git clone https://github.com/RPi-Distro/bluez-firmware.git
-wget -cq http://deb.debian.org/debian/pool/non-free/b/bluez-firmware/bluez-firmware_1.2.orig.tar.gz
+wget -cq --show-progress http://deb.debian.org/debian/pool/non-free/b/bluez-firmware/bluez-firmware_1.2.orig.tar.gz
 cd bluez-firmware
 dpkg-buildpackage -us -uc
 cd ~
@@ -268,7 +268,7 @@ echo Fixing ca certificates.
 sleep 1s
 mkdir -p certificates
 cd certificates
-wget -cq http://deb.debian.org/debian/pool/main/c/ca-certificates/ca-certificates_20190110.tar.xz
+wget -cq --show-progress http://deb.debian.org/debian/pool/main/c/ca-certificates/ca-certificates_20190110.tar.xz
 tar -xf ca-certificates_20190110.tar.xz
 cd ca-certificates-20190110
 dpkg-buildpackage -us -uc
@@ -301,8 +301,8 @@ apt install -y libasound2-dev libcap-ng-dev libdbus-glib-1-dev libdw-dev libglib
 echo
 echo Downloading sources.
 sleep 1s
-wget -cq http://deb.debian.org/debian/pool/main/b/bluez/bluez_5.52.orig.tar.xz
-wget -cq http://deb.debian.org/debian/pool/main/b/bluez/bluez_5.52-1.debian.tar.xz
+wget -cq --show-progress http://deb.debian.org/debian/pool/main/b/bluez/bluez_5.52.orig.tar.xz
+wget -cq --show-progress http://deb.debian.org/debian/pool/main/b/bluez/bluez_5.52-1.debian.tar.xz
 echo Done.
 echo
 tar xf bluez_5.52-1.debian.tar.xz
@@ -367,8 +367,8 @@ mv -f rpi-eeprom-update.patch /root/eeprom/
 cp -f rpi-eeprom-control.patch /usr/local/src/
 mv -f rpi-eeprom-control.patch /root/eeprom/
 cd ~/eeprom
-wget -cq https://archive.raspberrypi.org/debian/pool/main/r/rpi-eeprom/rpi-eeprom_${EEPROM_VERSION}-1.debian.tar.xz
-wget -cq https://archive.raspberrypi.org/debian/pool/main/r/rpi-eeprom/rpi-eeprom_${EEPROM_VERSION}.orig.tar.gz
+wget -cq --show-progress https://archive.raspberrypi.org/debian/pool/main/r/rpi-eeprom/rpi-eeprom_${EEPROM_VERSION}-1.debian.tar.xz
+wget -cq --show-progress https://archive.raspberrypi.org/debian/pool/main/r/rpi-eeprom/rpi-eeprom_${EEPROM_VERSION}.orig.tar.gz
 tar xf rpi-eeprom_${EEPROM_VERSION}.orig.tar.gz
 tar xf rpi-eeprom_${EEPROM_VERSION}-1.debian.tar.xz
 rm -f rpi-eeprom_${EEPROM_VERSION}-1.debian.tar.xz
