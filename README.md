@@ -148,8 +148,19 @@ crosscompile=1                    # cross compiling
 menuconfig=0                      # open menuconfig
 custom_defconfig=0                # your custom defconfig
 MYCONFIG="nameofyour_defconfig"   # place in defconfig directory
-
 ```
+
+#### Updating eeprom
+```sh
+nano ~/.eeprom
+# EEPROM CONFIG
+## https://archive.raspberrypi.org/debian/pool/main/r/rpi-eeprom/
+EEPROM_VERSION="6.0" # change version number
+```
+`Execute: deb-eeprom-update`
+
+---
+
 ### Support
 
 Should you come across any issues, feel free to either open an issue on GitHub or talk with us directly by joining our channel on Freenode; [`#debianarm-port`](irc://irc.freenode.net/#debianarm-port)
