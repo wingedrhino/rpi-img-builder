@@ -12,9 +12,9 @@ The boards that are currently supported are;
 
 A bootable Debian image which has been compiled against Raspberry Pi's modified `Linux 5.4.40` (`aarch64 armv6l`) kernel can be found here;
 
-* [`rpi-4-b-debian-buster`](http://www.mediafire.com/file/ayii72zo49umued/rpi-4-b-debian-buster-2020-05-12-v8.7z/file)
-* [`rpi-3-b-debian-buster`](http://www.mediafire.com/file/2wpinpe6xw7j4t8/rpi-3-b-debian-buster-2020-05-12-v8.7z/file)
-* [`rpi-debian-buster`](http://www.mediafire.com/file/wqzwa7yr6pymg34/rpi-debian-buster-2020-05-12.7z/file)
+* [`rpi-4-b-debian-buster`](https://github.com/pyavitz/rpi-img-builder/releases/download/5.4.40/rpi-4-b-debian-buster-2020-05-12-v8.7z)
+* [`rpi-3-b-debian-buster`](https://github.com/pyavitz/rpi-img-builder/releases/download/5.4.40/rpi-3-b-debian-buster-2020-05-12-v8.7z)
+* [`rpi-debian-buster`](https://github.com/pyavitz/rpi-img-builder/releases/download/5.4.40/rpi-debian-buster-2020-05-12.7z)
 
 ## Dependencies
 
