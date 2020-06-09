@@ -65,7 +65,7 @@ install-depends:
 	sudo apt install build-essential bison bc git dialog patch \
 	dosfstools zip unzip qemu debootstrap qemu-user-static rsync \
 	kmod cpio flex libssl-dev libncurses5-dev parted fakeroot swig \
-	crossbuild-essential-arm64 crossbuild-essential-armel
+	crossbuild-essential-arm64
 
 install-native-depends:
 	# Install all dependencies:
