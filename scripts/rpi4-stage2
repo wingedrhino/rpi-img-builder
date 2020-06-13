@@ -51,7 +51,7 @@ tee /usr/local/sbin/firstboot <<EOF
 #!/bin/bash
 ### Grow Partition
 echo
-echo -e "\e[0;31mRunning firstboot.\e[0m"
+echo -e "\e[0;31mGrumble Grumble ...\e[0m"
 bash growpart /dev/mmcblk0 2
 sleep 1s
 resize2fs /dev/mmcblk0p2
