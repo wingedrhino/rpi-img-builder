@@ -34,9 +34,10 @@ help:
 	@echo "For details consult the README.md"
 	@echo
 
-commmands:
+commands:
 	@echo
 	@echo "  make install-native-depends"
+	@echo
 	@echo "  make kernel            Make linux kernel"
 	@echo "  make rootfs            Make ROOTFS tarball"
 	@echo "  make image             Make bootable Ubuntu image"
