@@ -110,6 +110,10 @@ menu:
 	@${MENU}
 config:
 	# User config menu
+	@chmod go=rx files/scripts/*
+	@chmod go=r files/misc/*
+	@chmod go=r files/rules/*
+	@chmod go=r files/users/*
 	@chmod +x ${CONF}
 	@${CONF}
 
