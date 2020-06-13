@@ -33,6 +33,16 @@ make config     # Create user data file
 make menu       # Open menu interface
 make dialogrc   # Set builder theme (optional)
 ```
+#### Config Menu
+
+```sh
+Username:       # Your username
+Password:       # Your password
+Branch:         # Selected kernel branch
+Edge Branch:    # 1 for any branch above 5.4.y
+Menuconfig:     # 1 to run kernel menuconfig
+Crosscompile:   # 1 to cross compile | 0 to native compile
+```
 #### Miscellaneous
 
 ```sh
@@ -40,7 +50,6 @@ make cleanup    # Clean up image errors
 make purge      # Remove tmp directory
 make commands   # List legacy commands
 ```
-
 ## Command list (legacy)
 
 #### Raspberry Pi 4B
