@@ -46,7 +46,7 @@ while true; do
       ;;
     1 )
       make all
-      dialog --prgbox "Results:" "ls *.img *devuan* rpi4/*.deb" 30 60
+      dialog --prgbox "Results:" "ls *.img *rootfs-aarch64* rpi4/*.deb" 30 60
       exit 0
       ;;
     2 )
@@ -55,7 +55,7 @@ while true; do
       ;;
     3 )
       make rootfs
-      dialog --prgbox "Results:" "ls *devuan*" 30 60
+      dialog --prgbox "Results:" "ls *rootfs-aarch64*" 30 60
       ;;
     4 )
       make image
