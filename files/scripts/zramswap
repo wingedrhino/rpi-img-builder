@@ -8,7 +8,7 @@
 # Description:
 ### END INIT INFO
 
-# chmod +x /etc/init.d/actled
+# chmod +x /etc/init.d/zramswap
 # update-rc.d actled defaults 2
 
 . /lib/lsb/init-functions
