@@ -118,6 +118,7 @@ mv -f pwrledoff /etc/init.d/
 mv -f actledoff /etc/init.d/
 mv -f governor /etc/init.d/
 mv -f bthelper /etc/init.d/
+mv -f zramswap /etc/init.d/
 # Own
 chmod +x /usr/bin/growpart
 chown root:root /usr/bin/growpart
@@ -484,9 +485,11 @@ chmod +x /etc/init.d/firstboot
 chmod +x /etc/init.d/pwrledoff
 chmod +x /etc/init.d/actledoff
 chmod +x /etc/init.d/bthelper
+chmod +x /etc/init.d/zramswap
 update-rc.d firstboot defaults 2
 update-rc.d governor defaults 2
 update-rc.d bthelper defaults 2
+update-rc.d zramswap defaults 2
 #update-rc.d pwrledoff defaults 2
 #update-rc.d actledoff defaults 2
 echo Done.
