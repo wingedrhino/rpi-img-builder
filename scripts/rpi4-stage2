@@ -227,7 +227,7 @@ echo
 echo Adding zramswap config.
 sleep 1s
 rm -f /etc/default/zramswap
-mv -f zramswap /etc/default/zramswap
+mv -f zramswap.conf /etc/default/zramswap
 chown root:root /etc/default/zramswap
 echo Done.
 
