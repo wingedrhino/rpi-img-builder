@@ -1,4 +1,6 @@
 TMP4="rpi4"
+TMP3="rpi3"
+TMP0="rpi0"
 
 DEF="../defconfig"
 PAT="../patches"
@@ -11,8 +13,11 @@ KERNEL="linux-rpi"
 
 # stage1
 RPI4="2350MB"
+RPI3="2350MB"
+RPI0="2250MB"
 DEVUAN_VERSION="beowulf"
 
+# stage2
 PKGS1="tzdata keyboard-configuration sudo man-db dbus initramfs-tools \
 	e2fsprogs fonty-rg patch curl wget apt-transport-https dirmngr \
 	cmake rsync psmisc"
@@ -27,7 +32,9 @@ PKGS2="cpu hwinfo haveged resolvconf git build-essential net-tools ifplugd \
 FIRMWARE="firmware-linux"
 
 # https://archive.raspberrypi.org/debian/pool/main/r/rpi-eeprom/
-EEPROM_VERSION="7.1"
+EEPROM_VERSION="7.2"
 
 # motd
 BRAND4="Raspberry Pi 4B"
+BRAND3="Raspberry Pi 3B"
+BRAND0="Raspberry Pi"
