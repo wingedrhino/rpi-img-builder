@@ -74,7 +74,7 @@ make rootfs   # (arm64)
 nano ~/.eeprom
 # EEPROM CONFIG
 ## https://archive.raspberrypi.org/debian/pool/main/r/rpi-eeprom/
-EEPROM_VERSION="7.1" # change version number
+EEPROM_VERSION="7.2" # change version number
 ```
 Execute: `deb-eeprom-update`
 
