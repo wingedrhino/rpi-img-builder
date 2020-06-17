@@ -38,7 +38,7 @@ MATE="mate-desktop-environment xinit chromium lightdm lightdm-gtk-greeter \
 FIRMWARE="firmware-linux"
 
 # https://archive.raspberrypi.org/debian/pool/main/r/rpi-eeprom/
-EEPROM_VERSION="7.1"
+EEPROM_VERSION="7.3"
 
 # motd
 BRAND4="Raspberry Pi 4B"
