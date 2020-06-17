@@ -33,6 +33,6 @@ FIRMWARE="firmware-linux"
 EEPROM_VERSION="7.3"
 
 # motd
-BRAND4="RPi4B"
-BRAND3="RPi3B"
-BRAND0="RPiZERO"
+BRAND4="Raspberry Pi 4B"
+BRAND3="Raspberry Pi 3B"
+BRAND0="Raspberry Pi"
