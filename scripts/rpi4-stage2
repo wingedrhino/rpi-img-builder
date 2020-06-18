@@ -97,7 +97,7 @@ mv -f darkgreen.ini /usr/share/mc/skins/darkgreen.ini
 mv -f darkred.ini /usr/share/mc/skins/darkred.ini
 echo Done.
 echo
-echo Adding mc ini and nanorc
+echo Adding mc ini and nanorc.
 sleep 1s
 mkdir -p /root/.config/mc
 mv -f root-ini /root/.config/mc/ini
@@ -105,6 +105,12 @@ mv -f nanorc-root /root/.nanorc
 mkdir -p /home/${user}/.config/mc
 mv -f user-ini /home/${user}/.config/mc/ini
 mv -f nanorc-user /home/${user}/.nanorc
+echo Done.
+echo
+echo Adding xfce configs.
+unzip -qq config.zip
+mv -f config/* /home/${user}/.config/
+rm -fdr config config.zip
 chown -R root:root /root
 chown -R ${user}:${user} /home/${user}
 echo Done.
@@ -113,7 +119,6 @@ echo Done.
 echo
 echo Adding pi firmware.
 sleep 1s
-apt install -y zip unzip p7zip-full
 unzip -qq master.zip
 rm -f master.zip
 mkdir -p /lib/firmware

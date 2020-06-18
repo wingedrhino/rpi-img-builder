@@ -10,14 +10,14 @@ KERNEL="linux-rpi"
 # do not edit above this line
 
 # stage1
-RPI4_XFCE4="3575MB"
+RPI4_XFCE4="3650MB"
 RPI4_MATE="4500MB"
 DEBIAN_VERSION="buster"
 
 # stage2
 PKGS1="tzdata keyboard-configuration sudo man-db dbus initramfs-tools \
 	e2fsprogs fonty-rg patch curl wget apt-transport-https dirmngr \
-	cmake rsync psmisc"
+	cmake rsync psmisc zip unzip p7zip-full"
 
 PKGS2="cpu hwinfo haveged resolvconf git build-essential net-tools ifplugd \
 	fuse wpasupplicant wireless-tools usbutils alsa-utils gettext \
@@ -29,7 +29,8 @@ PKGS2="cpu hwinfo haveged resolvconf git build-essential net-tools ifplugd \
 XFCE4="xfce4 xinit thunar chromium mousepad gvfs-backends gvfs-fuse \
 	xfce4-terminal lightdm lightdm-gtk-greeter numix-gtk-theme \
 	numix-icon-theme avahi-utils pulseaudio blueman xfce4-goodies \
-	network-manager network-manager-gnome"
+	network-manager network-manager-gnome xscreensaver compton \
+	xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra"
 
 MATE="mate-desktop-environment xinit chromium lightdm lightdm-gtk-greeter \
 	gvfs-backends gvfs-fuse avahi-utils pulseaudio blueman network-manager \
@@ -38,7 +39,7 @@ MATE="mate-desktop-environment xinit chromium lightdm lightdm-gtk-greeter \
 FIRMWARE="firmware-linux"
 
 # https://archive.raspberrypi.org/debian/pool/main/r/rpi-eeprom/
-EEPROM_VERSION="7.3"
+EEPROM_VERSION="7.4"
 
 # motd
 BRAND4="Raspberry Pi 4B"

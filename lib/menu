@@ -30,19 +30,19 @@ while true; do
   case $exit_status in
     $DIALOG_CANCEL)
       clear
-      echo "Program terminated."
+      echo -e "\e[0;31m Program terminated.\e[0m"
       exit
       ;;
     $DIALOG_ESC)
       clear
-      echo "Program aborted." >&2
+      echo -e "\e[0;31m Program aborted.\e[0m" >&2
       exit 1
       ;;
   esac
   case $selection in
     0 )
       clear
-      echo "Program terminated."
+      echo -e "\e[0;31m Program terminated.\e[0m"
       ;;
     1 )
       make all

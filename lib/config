@@ -54,5 +54,5 @@ rm -f tmp0 tmp1 tmp2
 clear
 
 # userdata
-echo -e "\e[0;31m userdata file created."
+echo -e "\e[0;31m userdata file created.\e[0m"
 echo
