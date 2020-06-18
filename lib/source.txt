@@ -29,8 +29,7 @@ PKGS2="cpu hwinfo haveged resolvconf git build-essential net-tools ifplugd \
 XFCE4="xfce4 xinit thunar chromium mousepad gvfs-backends gvfs-fuse \
 	xfce4-terminal lightdm lightdm-gtk-greeter numix-gtk-theme \
 	numix-icon-theme avahi-utils pulseaudio blueman xfce4-goodies \
-	network-manager network-manager-gnome xscreensaver compton \
-	xscreensaver-data-extra xscreensaver-gl xscreensaver-gl-extra"
+	network-manager network-manager-gnome xscreensaver compton"
 
 MATE="mate-desktop-environment xinit chromium lightdm lightdm-gtk-greeter \
 	gvfs-backends gvfs-fuse avahi-utils pulseaudio blueman network-manager \
