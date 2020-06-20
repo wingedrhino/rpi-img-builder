@@ -9,7 +9,7 @@
 ### END INIT INFO
 
 # chmod +x /etc/init.d/network
-# update-rc.d actled defaults 2
+# update-rc.d network defaults S
 
 . /lib/lsb/init-functions
 
