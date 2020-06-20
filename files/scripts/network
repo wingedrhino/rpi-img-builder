@@ -27,7 +27,7 @@ case "$1" in
     exit 3
     ;;
   restart)
-    log_daemon_msg "Restarting networking"
+    log_daemon_msg "Restarting network"
     /etc/init.d/networking restart &>/dev/null
     log_end_msg $?
     exit 0
