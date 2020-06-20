@@ -9,7 +9,7 @@
 ### END INIT INFO
 
 # chmod +x /etc/init.d/zramswap
-# update-rc.d actled defaults 2
+# update-rc.d zramswap defaults 2
 
 . /lib/lsb/init-functions
 
