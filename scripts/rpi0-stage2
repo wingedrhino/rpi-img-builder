@@ -102,8 +102,7 @@ mv -f firstboot /etc/init.d/
 mv -f governor /etc/init.d/
 mv -f bthelper /etc/init.d/
 mv -f zramswap /etc/init.d/
-rm -f wired
-mv -f wlan /etc/init.d/
+mv -f network /etc/init.d/
 # Own
 chmod +x /usr/bin/growpart
 chown root:root /usr/bin/growpart
@@ -479,13 +478,13 @@ chmod +x /etc/init.d/governor
 chmod +x /etc/init.d/firstboot
 chmod +x /etc/init.d/bthelper
 chmod +x /etc/init.d/zramswap
-chmod +x /etc/init.d/wlan
+chmod +x /etc/init.d/network
 update-rc.d -f networking remove
 update-rc.d firstboot defaults 2
 update-rc.d governor defaults 2
 update-rc.d bthelper defaults 2
 update-rc.d zramswap defaults 2
-update-rc.d wlan defaults S
+update-rc.d network defaults S
 echo Done.
 ### Own it
 chown -R ${user}:${user} /home/${user}

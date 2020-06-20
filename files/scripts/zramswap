@@ -18,6 +18,7 @@ case "$1" in
     log_daemon_msg "Creating zswap partitions"
     zramswap start 2>/dev/null
     log_end_msg $?
+    exit 0
     ;;
   stop)
     log_daemon_msg "Unmounting zswap partitions"

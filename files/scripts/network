@@ -1,0 +1,35 @@
+### BEGIN INIT INFO
+# Provides: network
+# Required-Start:
+# Required-Stop:
+# Default-Start: S
+# Default-Stop: 0 6
+# Short-Description: Control networking
+# Description:
+### END INIT INFO
+
+# chmod +x /etc/init.d/network
+# update-rc.d actled defaults 2
+
+. /lib/lsb/init-functions
+
+case "$1" in
+  start)
+    log_daemon_msg "Starting network"
+    /etc/init.d/networking start &>/dev/null
+    log_end_msg $?
+    exit 0
+    ;;
+  stop)
+    log_daemon_msg "Stopping network"
+    /etc/init.d/networking stop &>/dev/null
+    log_end_msg $?
+    exit 3
+    ;;
+  restart)
+    log_daemon_msg "Restarting networking"
+    /etc/init.d/networking restart &>/dev/null
+    log_end_msg $?
+    exit 0
+    ;;
+esac
