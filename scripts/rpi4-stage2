@@ -168,6 +168,7 @@ chown root:root /etc/wpa_supplicant/wpa_supplicant.conf
 mkdir -p /etc/udev/rules.d
 mv -f 80-net-setup-link.rules /etc/udev/rules.d/80-net-setup-link.rules
 chown root:root /etc/udev/rules.d/80-net-setup-link.rules
+rm -f /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
 echo Done.
 
 ### ZSWAP
