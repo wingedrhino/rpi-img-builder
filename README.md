@@ -42,6 +42,10 @@ Branch:         # Selected kernel branch
 Edge Branch:    # 1 for any branch above 5.4.y
 Menuconfig:     # 1 to run kernel menuconfig
 Crosscompile:   # 1 to cross compile | 0 to native compile
+
+# Only one Desktop Environment per build.
+Xfce4           # 1 for Xfce Desktop
+Mate            # 1 for Mate Desktop
 ```
 #### Miscellaneous
 
