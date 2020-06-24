@@ -1,4 +1,5 @@
 TMP4="rpi4"
+TMP3="rpi3"
 
 DEF="../defconfig"
 PAT="../patches"
@@ -11,6 +12,7 @@ KERNEL="linux-rpi"
 
 # stage1
 RPI4="2300MB"
+RPI3="2300MB"
 UBUNTU_VERSION="20.04"
 
 PKGS1="tzdata keyboard-configuration sudo man-db dbus initramfs-tools \
@@ -31,3 +33,4 @@ EEPROM_VERSION="7.4"
 
 # motd
 BRAND4="Raspberry Pi 4B"
+BRAND3="Raspberry Pi 3B"

@@ -2,6 +2,7 @@
 
 The boards that are currently supported are;
 * Raspberry Pi 4B (bcm2711)
+* Raspberry Pi 3B/3B+ (bcm2710, bcm2837, bcm2837b0)
 
 ## Dependencies
 
@@ -59,6 +60,14 @@ make commands   # List legacy commands
 make kernel
 make image
 make all
+```
+
+#### Raspberry Pi 3B
+
+```sh
+make rpi3-kernel
+make rpi3-image
+make rpi3-all
 ```
 
 #### Root Filesystems

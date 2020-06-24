@@ -16,7 +16,7 @@ while true; do
   exec 3>&1
   selection=$(dialog \
     --backtitle "Raspberry Pi Image Builder | Ubuntu 20.04 Focal Fossa" \
-    --title "Raspberry Pi 4B" \
+    --title "Raspberry Pi 3B/+" \
     --clear \
     --cancel-label "Exit" \
     --menu "Select:" $HEIGHT $WIDTH 4 \
@@ -45,20 +45,20 @@ while true; do
       echo -e "\e[0;31m Program terminated.\e[0m"
       ;;
     1 )
-      make all
-      dialog --prgbox "Results:" "ls *.img *ubuntu-base* rpi4/*.deb" 30 60
+      make rpi3-all
+      dialog --prgbox "Results:" "ls *.img *ubuntu-base* rpi3/*.deb" 30 60
       exit 0
       ;;
     2 )
-      make kernel
-      dialog --prgbox "Results:" "ls rpi4/*.deb" 30 60
+      make rpi3-kernel
+      dialog --prgbox "Results:" "ls rpi3/*.deb" 30 60
       ;;
     3 )
       make rootfs
       dialog --prgbox "Results:" "ls *ubuntu-base*" 30 60
       ;;
     4 )
-      make image
+      make rpi3-image
       dialog --prgbox "Results:" "ls *.img" 30 60
       ;;
   esac
