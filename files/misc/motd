@@ -6,7 +6,7 @@ run-setup will ask and perform the following:
 
 Change passwd(s): sudo passwd $USER
 
-Webs: nmtui
+To setup wifi: nmtui
 
 Enjoy!
 
