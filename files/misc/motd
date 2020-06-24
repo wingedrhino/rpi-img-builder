@@ -6,9 +6,6 @@ run-setup will ask and perform the following:
 
 Change passwd(s): sudo passwd $USER
 
-Webs:
-Examples can be found in: /etc/network/interfaces
-To setup wifi edit: /etc/wpa_supplicant/wpa_supplicant.conf
-nano and mc are installed for easy editing and navigation.
+To setup wifi: nmtui
 
 Enjoy!
