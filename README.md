@@ -1,20 +1,9 @@
-
-# rpi-img-builder
-
-Debian Image Builder for the Raspberry Pi 
+## This branch is depreciated
 
 The boards that are currently supported are;
 * Raspberry Pi 4B (bcm2711)
 * Raspberry Pi 3B/3B+ (bcm2709, bcm2837, bcm2837b0)
 * Raspberry Pi 0/0W/1/+ (bcm2708, bcm2835)
-
-### Downloadable Image
-
-A bootable Debian image which has been compiled against Raspberry Pi's modified `Linux 5.4.40` (`aarch64 armv6l`) kernel can be found here;
-
-* [`rpi-4-b-debian-buster`](https://github.com/pyavitz/rpi-img-builder/releases/download/5.4.40/rpi-4-b-debian-buster-2020-05-12-v8.7z)
-* [`rpi-3-b-debian-buster`](https://github.com/pyavitz/rpi-img-builder/releases/download/5.4.40/rpi-3-b-debian-buster-2020-05-12-v8.7z)
-* [`rpi-debian-buster`](https://github.com/pyavitz/rpi-img-builder/releases/download/5.4.40/rpi-debian-buster-2020-05-12.7z)
 
 ## Dependencies
 
