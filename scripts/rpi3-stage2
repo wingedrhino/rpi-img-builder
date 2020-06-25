@@ -59,6 +59,7 @@ mv -f sysinfo /usr/local/bin/
 mv -f temp-monitor /usr/local/bin/tmon
 mv -f wifiscan /usr/local/bin/
 mv -f growpart /usr/bin/
+mv -f setup_wifi /boot/rename_to_setup_wifi
 # Service
 mv -f firstboot.init /etc/init.d/firstboot
 mv -f firstboot /usr/local/sbin/
@@ -165,6 +166,7 @@ mv -f wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
 chown root:root /etc/wpa_supplicant/wpa_supplicant.conf
 mkdir -p /etc/udev/rules.d
 mv -f 80-net-setup-link.rules /etc/udev/rules.d/80-net-setup-link.rules
+sed -i 's/NAME="wlan0"/NAME="eth0"/g' /etc/udev/rules.d/80-net-setup-link.rules
 chown root:root /etc/udev/rules.d/80-net-setup-link.rules
 rm -f /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
 echo Done.
@@ -204,6 +206,8 @@ echo Adding regdb.
 sleep 1s
 apt update
 apt install -y crda
+sed -i "s/REGDOMAIN=/REGDOMAIN=${COUNTRYCODE}/g" /etc/default/crda
+echo 'KERNEL=="regulatory*", ACTION=="change", SUBSYSTEM=="platform", RUN+="/sbin/crda"' > /etc/udev/rules.d/60-regdb.rules
 git clone https://kernel.googlesource.com/pub/scm/linux/kernel/git/sforshee/wireless-regdb
 echo
 echo Moving db files.

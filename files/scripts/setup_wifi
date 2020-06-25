@@ -1,0 +1,14 @@
+#!/bin/bash
+
+## input your information
+#
+NAME=""
+SSID=""
+PASSKEY=""
+COUNTRYCODE=""
+
+# do not edit below this line
+sed -i "s/REGDOMAIN=US/REGDOMAIN=${COUNTRYCODE}/g" /etc/default/crda
+nmcli c add type wifi con-name ${NAME} ifname wlan0 ssid ${SSID}
+nmcli c modify ${NAME} wifi-sec.key-mgmt wpa-psk wifi-sec.psk ${PASSKEY}
+nmcli c up ${NAME}
