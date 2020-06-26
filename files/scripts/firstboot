@@ -1,4 +1,5 @@
 #!/bin/bash
+
 ### Functions
 grow_mmcblk () {
 bash growpart /dev/mmcblk0 2 > /dev/null 2>&1
@@ -30,12 +31,6 @@ chk_sda () {
 fsck.fat -trawl /dev/sda1 > /dev/null 2>&1
 }
 
-connect_wifi () {
-mv -f /boot/setup_wifi /usr/local/bin/
-chmod +x /usr/local/bin/setup_wifi
-/usr/local/bin/setup_wifi  > /dev/null 2>&1
-}
-
 ### Grow Partition
 if touch -f /dev/mmcblk0 2>/dev/null; then grow_mmcblk;
         else echo "" &>/dev/null;
@@ -54,7 +49,8 @@ sleep 1s
 /bin/rm -v /etc/ssh/ssh_host_* > /dev/null 2>&1
 dpkg-reconfigure openssh-server > /dev/null 2>&1
 systemctl restart ssh > /dev/null 2>&1
-### Fix boot partition
+
+### Fsck boot partition
 umount /boot
 sleep 1s
 if touch -f /dev/mmcblk0 2>/dev/null; then chk_mmcblk;
@@ -71,15 +67,9 @@ fi
 sleep 1s
 mount /boot
 
-### Connect to wifi
-sleep 1s
-if touch -f /boot/setup_wifi 2>/dev/null; then connect_wifi;
-        else rm -f /boot/rename_to_setup_wifi > /dev/null 2>&1;
-fi
-
 ### Clean up
 systemctl disable firstboot > /dev/null 2>&1
 update-rc.d firstboot remove > /dev/null 2>&1
 rm -f /var/cache/debconf/*
-rm -f /usr/local/bin/setup_wifi > /dev/null 2>&1
+rm -f /boot/rename_to_setup_wifi > /dev/null 2>&1
 rm -f /usr/local/sbin/firstboot

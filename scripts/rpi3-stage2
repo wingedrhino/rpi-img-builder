@@ -60,6 +60,7 @@ mv -f temp-monitor /usr/local/bin/tmon
 mv -f wifiscan /usr/local/bin/
 mv -f growpart /usr/bin/
 mv -f setup_wifi /boot/rename_to_setup_wifi
+mv -f credentials /usr/local/bin/
 # Service
 mv -f firstboot.init /etc/init.d/firstboot
 mv -f firstboot /usr/local/sbin/
@@ -206,7 +207,6 @@ echo Adding regdb.
 sleep 1s
 apt update
 apt install -y crda
-sed -i "s/REGDOMAIN=/REGDOMAIN=${COUNTRYCODE}/g" /etc/default/crda
 echo 'KERNEL=="regulatory*", ACTION=="change", SUBSYSTEM=="platform", RUN+="/sbin/crda"' > /etc/udev/rules.d/60-regdb.rules
 git clone https://kernel.googlesource.com/pub/scm/linux/kernel/git/sforshee/wireless-regdb
 echo
@@ -461,13 +461,33 @@ echo Creating first boot.
 sleep 1s
 tee /etc/systemd/system/firstboot.service <<EOF
 [Unit]
-Description=First boot
+Description=First Boot
 After=network.target
 Before=rc-local.service
 ConditionPathExists=/usr/local/sbin/firstboot
 
 [Service]
 ExecStart=/etc/init.d/firstboot start > /dev/null 2>&1
+Type=oneshot
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+#### Apply wifi credentials
+echo
+echo Creating wifi credentials.
+sleep 1s
+tee /etc/systemd/system/credentials.service <<EOF
+[Unit]
+Description=Wifi Credentials
+After=network.target
+Before=firstboot.service
+ConditionPathExists=/usr/local/bin/credentials
+
+[Service]
+ExecStart=/usr/local/bin/credentials > /dev/null 2>&1
 Type=oneshot
 RemainAfterExit=no
 
@@ -524,6 +544,7 @@ systemctl enable zramswap
 systemctl enable bluetooth
 update-rc.d firstboot defaults 2
 systemctl enable firstboot
+systemctl enable credentials
 systemctl enable serial-getty@ttyUSB0.service
 echo Done.
 ### Own it
