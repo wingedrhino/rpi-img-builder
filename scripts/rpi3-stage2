@@ -59,7 +59,6 @@ mv -f sysinfo /usr/local/bin/
 mv -f temp-monitor /usr/local/bin/tmon
 mv -f wifiscan /usr/local/bin/
 mv -f growpart /usr/bin/
-mv -f setup_wifi /boot/rename_to_setup_wifi
 mv -f credentials /usr/local/bin/
 # Service
 mv -f firstboot.init /etc/init.d/firstboot
@@ -170,6 +169,7 @@ mv -f 80-net-setup-link.rules /etc/udev/rules.d/80-net-setup-link.rules
 sed -i 's/NAME="wlan0"/NAME="eth0"/g' /etc/udev/rules.d/80-net-setup-link.rules
 chown root:root /etc/udev/rules.d/80-net-setup-link.rules
 rm -f /usr/lib/NetworkManager/conf.d/10-globally-managed-devices.conf
+mv -f credentials.txt /boot/rename_to_credentials.txt
 echo Done.
 
 ### ZSWAP

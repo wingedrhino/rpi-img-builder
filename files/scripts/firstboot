@@ -71,5 +71,5 @@ mount /boot
 systemctl disable firstboot > /dev/null 2>&1
 update-rc.d firstboot remove > /dev/null 2>&1
 rm -f /var/cache/debconf/*
-rm -f /boot/rename_to_setup_wifi > /dev/null 2>&1
+rm -f /boot/rename_to_credentials.txt > /dev/null 2>&1
 rm -f /usr/local/sbin/firstboot
