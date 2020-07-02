@@ -161,6 +161,7 @@ mv -f sysinfo /usr/local/bin/
 mv -f temp-monitor /usr/local/bin/tmon
 mv -f wifiscan /usr/local/bin/
 mv -f growpart /usr/bin/
+mv -f credentials.sh /usr/local/bin/credentials
 # Inits
 mv -f firstboot /etc/init.d/
 mv -f pwrledoff /etc/init.d/
@@ -169,6 +170,7 @@ mv -f governor /etc/init.d/
 mv -f bthelper /etc/init.d/
 mv -f zramswap /etc/init.d/
 mv -f network /etc/init.d/
+mv -f credentials /etc/init.d/
 # Own
 chmod +x /usr/bin/growpart
 chown root:root /usr/bin/growpart
@@ -260,14 +262,89 @@ echo
 echo Adding network configs and rules.
 sleep 1s
 rm -f /etc/network/interfaces
-mv -f interfaces /etc/network/interfaces
-chown root:root /etc/network/interfaces
-mv -f wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
-chown root:root /etc/wpa_supplicant/wpa_supplicant.conf
 ln -sr /etc/network/if-up.d/00check-network-cable /etc/network/if-pre-up.d/00check-network-cable
 sed -i 's/#CONFIGURE_INTERFACES=yes/CONFIGURE_INTERFACES=yes/g' /etc/default/networking
 sed -i 's/#WAIT_ONLINE_METHOD=ifup/WAIT_ONLINE_METHOD=ifup/g' /etc/default/networking
 sed -i 's/#WAIT_ONLINE_TIMEOUT=300/WAIT_ONLINE_TIMEOUT=10/g' /etc/default/networking
+mv -f credentials.txt /boot/rename_to_credentials.txt
+
+tee /etc/opt/interfaces.manual <<EOF
+### Interfaces
+source /etc/network/interfaces.d/*
+### Loopback network interface
+auto lo
+iface lo inet loopback
+### Ethernet
+allow-hotplug eth0
+iface eth0 inet dhcp
+    #address 10.0.0.10
+    #netmask 255.255.255.0
+    #gateway 10.0.0.1
+    #dns-nameservers 8.8.8.8 8.8.4.4
+### Mobile tether
+#allow-hotplug usb0
+#iface usb0 inet dhcp
+### Wifi
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+	wireless-power off
+	#address 10.0.0.10
+	#netmask 255.255.255.0
+	#gateway 10.0.0.1
+	#dns-nameservers 8.8.8.8 8.8.4.4
+	wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+EOF
+
+tee /etc/opt/interfaces <<EOF
+### Interfaces
+source /etc/network/interfaces.d/*
+### Loopback network interface
+auto lo
+iface lo inet loopback
+### Ethernet
+allow-hotplug eth0
+iface eth0 inet dhcp
+    #address 10.0.0.10
+    #netmask 255.255.255.0
+    #gateway 10.0.0.1
+    #dns-nameservers 8.8.8.8 8.8.4.4
+### Mobile tether
+#allow-hotplug usb0
+#iface usb0 inet dhcp
+### Wifi
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+	wireless-power off
+	wlan_address 10.0.0.10
+	wlan_netmask 255.255.255.0
+	wlan_gateway 10.0.0.1
+	wlan_dns-nameservers 8.8.8.8 8.8.4.4
+	wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+EOF
+
+tee /etc/opt/wpa_supplicant.manual <<EOF
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+network={
+	ssid="mywifissid"
+	scan_ssid=1
+	key_mgmt=WPA-PSK
+	psk="wifipasskey"
+}
+EOF
+
+tee /etc/opt/wpa_supplicant.conf <<EOF
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=
+network={
+	name=
+	scan_ssid=1
+	key_mgmt=WPA-PSK
+	password=
+}
+EOF
 echo Done.
 
 ### ZSWAP
@@ -543,12 +620,14 @@ chmod +x /etc/init.d/actledoff
 chmod +x /etc/init.d/bthelper
 chmod +x /etc/init.d/zramswap
 chmod +x /etc/init.d/network
+chmod +x /etc/init.d/credentials
 update-rc.d -f networking remove
 update-rc.d firstboot defaults 2
 update-rc.d governor defaults 2
 update-rc.d bthelper defaults 2
 update-rc.d zramswap defaults 2
-update-rc.d network defaults S
+#update-rc.d network defaults S
+update-rc.d credentials defaults 2
 #update-rc.d pwrledoff defaults 2
 #update-rc.d actledoff defaults 2
 echo Done.

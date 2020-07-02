@@ -1,9 +1,10 @@
+#! /bin/sh
 ### BEGIN INIT INFO
 # Provides: network
 # Required-Start:
 # Required-Stop:
-# Default-Start: S
-# Default-Stop: 0 6
+# Default-Start:
+# Default-Stop:
 # Short-Description: Control networking
 # Description:
 ### END INIT INFO
