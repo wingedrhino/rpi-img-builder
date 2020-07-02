@@ -82,7 +82,7 @@ make rootfs   # (arm64)
 Rename file to credentials.txt and input your wifi information.
 
 NAME=" "			# Name of the connection
-SSID=" "			# SSID (usually the same as connection)
+SSID=" "			# Service set identifier
 PASSKEY=" "			# Wifi password
 COUNTRYCODE=" "			# Your country code
 
