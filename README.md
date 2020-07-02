@@ -77,6 +77,23 @@ make rootfs   # (arm64)
 ```
 
 ## Usage
+#### /boot/rename_to_credentials.txt
+```
+Rename file to credentials.txt and input your wifi information.
+
+NAME=" "			# Name of the connection
+SSID=" "			# SSID (usually the same as connection)
+PASSKEY=" "			# Wifi password
+COUNTRYCODE=" "			# Your country code
+
+MANUAL=n			# Set to y to enable a static ip
+IPADDR=" "			# Static ip address
+GATEWAY=" "			# Your Gateway
+DNS=""				# Your preferred dns
+
+For headless use: ssh user@ipaddress
+```
+
 #### Updating eeprom
 ```sh
 nano ~/.eeprom
