@@ -78,7 +78,7 @@ make rootfs   # (arm64)
 
 ## Usage
 #### /boot/rename_to_credentials.txt
-```
+```sh
 Rename file to credentials.txt and input your wifi information.
 
 NAME=" "			# Name of the connection
