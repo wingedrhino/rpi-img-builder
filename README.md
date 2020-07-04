@@ -44,6 +44,13 @@ Edge Branch:    # 1 for any branch above 5.4.y
 Menuconfig:     # 1 to run kernel menuconfig
 Crosscompile:   # 1 to cross compile | 0 to native compile
 ```
+#### User defconfig
+```sh
+nano userdata.txt
+# place config in defconfig directory
+custom_defconfig=1
+MYCONFIG="nameofyour_defconfig"
+```
 #### Miscellaneous
 
 ```sh
@@ -103,12 +110,18 @@ EEPROM_VERSION="6.0" # change version number
 ```
 Execute: `deb-eeprom-update`
 
-#### User defconfig
+#### Using fetch
 ```sh
-nano userdata.txt
-# place config in defconfig directory
-custom_defconfig=1
-MYCONFIG="nameofyour_defconfig"
+Fetch, Linux kernel installer for the Raspberry Pi Image Builder
+Usage: fetch -opt
+
+   -1	    Linux 4.19.y LTS
+   -2       Linux 5.4.y LTS
+   -3       Linux Stable Branch
+   -u       Update Fetch
+   -h       Help
+   
+fetch -h will list available options and kernel revisions
 ```
 
 ---
