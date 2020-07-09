@@ -19,6 +19,7 @@ done
 }
 
 if [ -f "$UD" ]; then
+    echo ""
     echo "$UD file found."
 else 
     userdata
