@@ -205,7 +205,7 @@ install -v -m 0644 firmware/boot/COPYING.linux p1/
 rm -f firmware/boot/*
 
 ### Rootfs
-tar xfz ubuntu-base-${UBUNTU_VERSION}-base-arm64.tar.gz -C p2/
+tar -xf ubuntu-base-${UBUNTU_VERSION}-base-arm64.tar.gz -C p2/
 
 mkdir -p p2/etc/apt/apt.conf.d p2/etc/dpkg/dpkg.cfg.d
 echo "force-unsafe-io" > "p2/etc/dpkg/dpkg.cfg.d/dpkg-unsafe-io"
