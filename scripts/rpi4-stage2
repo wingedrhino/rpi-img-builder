@@ -129,14 +129,36 @@ echo
 echo Creating actled switch.
 tee /usr/local/sbin/actled <<EOF
 #!/bin/bash
+# activity led switch
+
+rpi_switch () {
 sh -c 'echo 0 > /sys/devices/platform/leds/leds/led0/brightness'
+}
+
+ml_switch () {
+sh -c 'echo 0 > /sys/devices/platform/leds/leds/ACT/brightness'
+}
+
+rpi_switch > /dev/null 2>&1
+ml_switch > /dev/null 2>&1
 EOF
 
 echo
 echo Creating pwrled switch.
 tee /usr/local/sbin/pwrled <<EOF
 #!/bin/bash
+# power led switch
+
+rpi_switch () {
 sh -c 'echo 0 > /sys/devices/platform/leds/leds/led1/brightness'
+}
+
+ml_switch () {
+sh -c 'echo 0 > /sys/devices/platform/leds/leds/PWR/brightness'
+}
+
+rpi_switch > /dev/null 2>&1
+ml_switch > /dev/null 2>&1
 EOF
 
 echo
