@@ -53,13 +53,13 @@ commands:
 	@echo "  rpi3                     Raspberry Pi 3B/+"
 	@echo
 	@echo "RPi4B:"
-	@echo " aacrh64"
+	@echo " aarch64"
 	@echo "  make kernel              Builds linux kernel"
 	@echo "  make image               Make bootable Ubuntu image"
 	@echo "  make all                 Kernel > rootfs > image"
 	@echo
 	@echo "RPi3B/+:"
-	@echo " aacrh64"
+	@echo " aarch64"
 	@echo "  make rpi3-kernel         Builds linux kernel"
 	@echo "  make rpi3-image          Make bootable Ubuntu image"
 	@echo "  make rpi3-all            Kernel > rootfs > image"
