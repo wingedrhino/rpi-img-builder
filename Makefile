@@ -70,7 +70,7 @@ commands:
 	@echo "  make all                 Kernel > rootfs > image"
 	@echo
 	@echo "RPi3B/+:"
-	@echo " aacrh64"
+	@echo " aarch64"
 	@echo "  make rpi3-kernel         Builds linux kernel"
 	@echo "  make rpi3-image          Make bootable Devuan image"
 	@echo "  make rpi3-all            Kernel > rootfs > image"
